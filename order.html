@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Split String using split() method</title>
+      <link rel="stylesheet" href="order.css">
+  <script>
+		alert("Please Login to continiue");
+		var name=prompt("Enter your name");
+		var mob=prompt("Mobile Number","91");		
+	function order()
+	{
+
+		let icecream =document.getElementsByClassName('icecream');		
+		let items="";
+		let tot=0;
+		let rate=new Array(50,60,70,80,90,55,20,50);
+		let qty=new Array(1,1,1,1,1,1,1,1);	
+		for (var i=0;i<icecream.length ;i++ )
+		{
+			if(icecream[i].checked==true)
+			{
+				
+				qty[i]=eval(prompt("Enter Quantity For "+icecream[i].value,qty[i]));
+				items+=icecream[i].value+"("+qty[i]+")*"+rate[i]+"=>"+qty[i]*rate[i]+"\n" ;
+				tot=tot+(qty[i]*rate[i]);
+			}
+		}
+		if(tot==0)
+		   alert("Please Select Icecream Flavour");
+		 else
+		{
+		    var choice=confirm("Are You Sure To Place Order ? ");
+			if(choice==true)
+				{alert("Name:"+name+"\nCustomer_Id:1102\n\nYour Order\n"+items+"\nTotal ->"+tot);}
+			else
+			{
+ 				var hasVoterCard=confirm("would want to change quantity ?");	
+				if(hasVoterCard==true)
+				{
+					order();
+				}else{
+					for (var i=0;i<icecream.length ;i++ )
+				{
+				icecream[i].checked=false;
+				}
+				}
+			}
+		}
+	}
+
+ 	var str="Pista,ButterScotch,Vanila,Strawberry,Chocolate,Teaberry,Caramel,Mango";
+
+	var ic=str.split(",");
+
+	document.write("<div id='cambox' style='display:grid;grid-template-columns:180px 180px 150px;'>");
+	for (var i=0;i<ic.length;i++ )
+	{
+		
+		document.write("<div><input type='checkbox'  class='icecream' value='"+ic[i]+"'>"+ic[i]+"</div>");
+
+	}
+	document.write("</div>");
+
+	document.write("<input type='button' id='button' value='Place Order' onclick='order();'>");
+	
+	function signup()
+	{
+		
+	}
+
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>
